@@ -3,11 +3,12 @@ export interface IProductStore {
   title: string
   price: number
   description: string
+  discountPercentage: number
   category: string
-  image: string
-  rating: {
-    rate: number
-    count: number
-  }
+  images: string
+  rating: number
+  stock: number
+  brand: string
+  thumbnail: string
   quantity?: number
 }

@@ -10,14 +10,14 @@
       <div class="item__block">
         <div class="item" v-for="(item, index) in products" :key="item.id">
           <router-link :to="{ name: 'product-card', params: { id: item.id } }">
-            <img :src="item.image" alt="" class="item__cart-img" />
+            <img :src="item.images[0]" alt="" class="item__cart-img" />
           </router-link>
           <div class="item__content-block">
             <router-link :to="{ name: 'product-card', params: { id: item.id } }">
               <div class="item__name">{{ item.title }}</div>
             </router-link>
             <div class="item__footer-block">
-              <div class="footer__price">{{ item.price }}</div>
+              <div class="footer__price">{{ item.price }}$</div>
               <CartButtonItem @click="store.addCart(index)" />
             </div>
           </div>

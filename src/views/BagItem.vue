@@ -7,7 +7,7 @@
     <div class="item__wrapper" v-for="(item, index) in cart" :key="item.id">
       <div class="item__bag">
         <div class="item__image-wrapper">
-          <img :src="item.image" alt="" class="item-image" />
+          <img :src="item.images[0]" alt="" class="item-image" />
         </div>
         <div class="item__block-content">
           <h3 class="name">{{ item.title }}</h3>
@@ -76,13 +76,12 @@ const pushItem = (index: number) => {
 
 .item__wrapper {
   width: 100%;
-  height: 100%;
   margin-top: 34px;
 }
 
 .item__bag {
   width: 100%;
-  height: 100%;
+
   display: flex;
   border-radius: 21px;
   background-color: #fff;
@@ -129,7 +128,7 @@ const pushItem = (index: number) => {
 
 .wrapper-rating {
   width: 100%;
-  height: 100%;
+
   display: flex;
 }
 
@@ -143,7 +142,6 @@ const pushItem = (index: number) => {
 
 .balls {
   width: 100%;
-  height: 100%;
   font-weight: 400;
   font-size: 20px;
   color: #12805d;
@@ -151,7 +149,7 @@ const pushItem = (index: number) => {
 
 .item__footer {
   width: 100%;
-  height: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,16 +182,7 @@ const pushItem = (index: number) => {
   .model {
     font-size: 16px;
   }
-  .description {
-    overflow: hidden;
-    height: 1010px;
-    cursor: pointer;
-  }
-  .description:hover {
-    overflow: visible;
-    height: 100%;
-    cursor: pointer;
-  }
+
   .balls {
     font-size: 12px;
     padding-top: 8px;

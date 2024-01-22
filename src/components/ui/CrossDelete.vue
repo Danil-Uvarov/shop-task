@@ -6,6 +6,10 @@
 <script setup lang="ts"></script>
 <style scoped>
 .cross {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   width: 20px;
   height: 20px;
   background-color: orange;
@@ -24,7 +28,7 @@ span {
 }
 span::before {
   display: block;
-  content: "";
+  content: '';
   width: 15px;
   height: 3px;
   background-color: black;

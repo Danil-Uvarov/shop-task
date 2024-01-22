@@ -7,11 +7,11 @@
     <div class="product__content">
       <div class="content__image-block">
         <div class="image-gallery">
-          <img :src="product.image" alt="#" />
-          <img :src="product.image" alt="#" />
-          <img :src="product.image" alt="#" />
+          <img :src="product.images[0]" alt="#" />
+          <img :src="product.images[1]" alt="#" />
+          <img :src="product.images[2]" alt="#" />
         </div>
-        <img :src="product.image" alt="" class="image__main" />
+        <img :src="product.images[0]" alt="" class="image__main" />
       </div>
       <div class="content__text-block">
         <div class="text__header-block">
@@ -22,7 +22,7 @@
           <div class="text__star-block"><img src="/public/img/Rating.png" alt="" /></div>
           <div class="text__balls">5.5</div>
         </div>
-        <div class="text__price">{{ product.price }}</div>
+        <div class="text__price">{{ product.price }}$</div>
       </div>
     </div>
     <div class="ptoduct__bottom">
@@ -57,7 +57,8 @@ const product = ref({})
 watch(
   productId,
   async (productId) => {
-    const response = await fetch(`https://fakestoreapi.com/products/${productId}`)
+    const response = await fetch(`https://dummyjson.com/products/${productId}`)
+
     product.value = await response.json()
   },
   { immediate: true }

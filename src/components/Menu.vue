@@ -3,13 +3,13 @@
     <div class="menu__header">
       <nav class="header__nav">
         <router-link :to="{ name: 'Content' }">
-          <img src="/public/img/Logo.png" alt="" class="header__logo" />
+          <img src="/public/img/logo.png" alt="" class="header__logo" />
         </router-link>
-        <img src="/public//img/Nav-Link@2x.png" alt="" class="header__link-home" />
-        <img src="/public/img/Vector.png" alt="" class="header__link-cart" />
+        <img src="/public//img/home-black.png" alt="" class="header__link-home" />
+        <img src="/public/img/bag-black.png" alt="" class="header__link-cart" />
       </nav>
     </div>
-    <img src="/public/img/Nav-Link.png" alt="" class="footer__link" />
+    <img src="/public/img/exit.png" alt="" class="footer__link" />
     <Burger />
   </section>
 </template>

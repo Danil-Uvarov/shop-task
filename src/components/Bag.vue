@@ -9,12 +9,9 @@
           <Plus @click="pushItem(index)" />
         </div>
         <router-link :to="{ name: 'product-card', params: { id: item.id } }">
-          <img :src="item.image" alt="" />
+          <img :src="item.images[0]" alt="" />
         </router-link>
-
-        <div class="bag__bottom-block">
-          <CrossDelete @click="deleteProduct(index)" />
-        </div>
+        <CrossDelete @click="deleteProduct(index)" />
       </div>
     </div>
     <div class="bag__total">Bag Total:{{ cart.length }}</div>
@@ -94,6 +91,7 @@ const pushItem = (index: number) => {
   background-color: #fff;
   border-radius: 12px;
   padding: 8px;
+  position: relative;
 }
 .quantity__block {
   width: 100%;

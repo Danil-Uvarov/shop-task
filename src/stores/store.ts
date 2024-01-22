@@ -16,7 +16,8 @@ export const createStore = defineStore('products', {
     async getItem() {
       const BASE_URl = import.meta.env.VITE_BASE_URL
       const data = await fetch(`${BASE_URl}`)
-      this.products = await data.json()
+      const res = await data.json()
+      this.products = res.products
     },
     addCart(index: number) {
       const productRepeat = this.cart.findIndex((item) => {
