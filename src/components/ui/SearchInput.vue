@@ -1,11 +1,11 @@
 <template>
-  <div class="searh-input">
+  <div class="search-input">
     <input class="input" type="text" placeholder="Products..." />
   </div>
 </template>
 <script setup lang="ts"></script>
 <style scoped>
-.searh-input {
+.search-input {
   width: 100%;
   text-align: center;
 }
@@ -14,8 +14,8 @@
   max-width: 507px;
   padding: 28px 0 20px 12px;
   border-radius: 13px;
-  box-shadow: 0px 4px 16px rgba(26, 31, 22, 0.15);
-  border: 0px;
+  box-shadow: 0 4px 16px rgba(26, 31, 22, 0.15);
+  border: 0;
 }
 @media (max-width: 650px) {
   .input {

@@ -3,19 +3,14 @@
     <div class="menu__header">
       <nav class="header__nav">
         <router-link :to="{ name: 'Content' }">
-          <img src="/public/img/logo.png" alt="" class="header__logo" />
+          <img src="@/assets/img/home-black.png" alt="" class="header__link-home" />
         </router-link>
-        <img src="/public//img/home-black.png" alt="" class="header__link-home" />
-        <img src="/public/img/bag-black.png" alt="" class="header__link-cart" />
       </nav>
     </div>
-    <img src="/public/img/exit.png" alt="" class="footer__link" />
-    <Burger />
   </section>
 </template>
 
 <script setup lang="ts">
-import Burger from './ui/Burger.vue'
 </script>
 
 <style scoped>
@@ -38,76 +33,10 @@ import Burger from './ui/Burger.vue'
   align-items: center;
   flex: 1 1 auto;
 }
-.menu__burger {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  position: relative;
-  z-index: 2;
-  width: 24px;
-  height: 24px;
-}
-
-.burger-span {
-  position: relative;
-  top: 5px;
-  right: 0px;
-  display: block;
-  width: 24px;
-  height: 3px;
-  background-color: black;
-  border-radius: 3px;
-}
-
-.burger-span::after {
-  content: '';
-  top: 5px;
-  right: 0px;
-  display: block;
-  position: absolute;
-  width: 24px;
-  height: 3px;
-  background-color: black;
-  border-radius: 3px;
-}
-.burger-span::before {
-  content: '';
-  bottom: 5px;
-  right: 0px;
-  display: block;
-  position: absolute;
-  width: 24px;
-  height: 3px;
-  background-color: black;
-  border-radius: 3px;
-}
-
-.header__logo {
-  margin: 28px;
-  width: 32px;
-  height: 37px;
-}
-
 .header__link-home {
   margin: 28px;
   width: 40px;
   height: 40px;
-}
-
-.header__link-cart {
-  margin: 28px;
-  width: 20px;
-  height: 21px;
-}
-
-.footer__link {
-  cursor: pointer;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  bottom: 16px;
-  max-width: 35px;
-  max-height: 35px;
 }
 @media (max-width: 650px) {
   .menu__body {
@@ -117,7 +46,6 @@ import Burger from './ui/Burger.vue'
     width: 100%;
     align-items: center;
     justify-content: space-around;
-    margin: 0;
     padding: 5px 0;
   }
   .menu__header {

@@ -1,32 +1,32 @@
 <template>
-  <section class="product__body">
+  <section class="product">
     <router-link to="/">
       <back-button />
     </router-link>
 
     <div class="product__content">
       <div class="content__image-block">
-        <div class="image-gallery">
+        <div class="content__image">
           <img :src="product.images[0]" alt="#" />
           <img :src="product.images[1]" alt="#" />
           <img :src="product.images[2]" alt="#" />
         </div>
         <img :src="product.images[0]" alt="" class="image__main" />
       </div>
-      <div class="content__text-block">
+      <div class="text">
         <div class="text__header-block">
           <h2 class="text__name">{{ product.title }}</h2>
           <h3 class="text__category">{{ product.category }}</h3>
         </div>
         <div class="text__appraisal">
-          <div class="text__star-block"><img src="/public/img/Rating.png" alt="" /></div>
+          <div class="text__star-block"><img src="/src/assets/img/Rating.png" alt="" /></div>
           <div class="text__balls">5.5</div>
         </div>
         <div class="text__price">{{ product.price }}$</div>
       </div>
     </div>
-    <div class="ptoduct__bottom">
-      <div class="bottim__line"></div>
+    <div class="bottom">
+      <div class="bottom__line"></div>
       <h3 class="bottom__title">Description</h3>
       <div class="bottom__description">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus consequuntur distinctio
@@ -46,14 +46,26 @@
 </template>
 
 <script setup lang="ts">
-import BagBlackButton from '@/components/ui/BagBlackButton.vue'
 import { useRoute } from 'vue-router'
 import BackButton from '@/components/ui/BackButton.vue'
 import { ref, computed, watch } from 'vue'
+import type {IProductStore} from "@/models/requests/IProductStore";
 
 const route = useRoute()
 const productId = computed(() => Number(route.params.id))
-const product = ref({})
+const product = ref<IProductStore>({
+  id: 1,
+  title: '',
+  price: 1,
+  description: '',
+  discountPercentage: 0,
+  category: '',
+  images: '',
+  rating: 1,
+  stock: 1,
+  brand: '',
+  thumbnail:'',
+  quantity: 0,})
 watch(
   productId,
   async (productId) => {
@@ -66,7 +78,7 @@ watch(
 </script>
 
 <style scoped>
-.product__body {
+.product {
   display: flex;
   flex-direction: column;
   padding: 0 20px;
@@ -88,7 +100,7 @@ watch(
   padding-right: 30px;
 }
 
-.image-gallery {
+.content__image {
   width: 100%;
   height: 100%;
   display: flex;
@@ -96,14 +108,13 @@ watch(
   padding-right: 10px;
 }
 
-.image-gallery img {
+.content__image img {
   border-radius: 13px;
   padding: 8px;
   margin: 0px 16px 24px 0px;
   width: 100%;
   height: 100%;
   max-width: 34px;
-  height: 42px;
   object-fit: contain;
   background-color: #fff;
 }
@@ -119,7 +130,7 @@ watch(
   background-color: #fff;
 }
 
-.content__text-block {
+.text {
   width: 100%;
   height: 100%;
   display: flex;
@@ -140,14 +151,13 @@ watch(
   font-size: 61px;
   margin-bottom: 8px;
   font-family: Cabin;
-  margin: 0px;
 }
 
 .text__category {
   width: 100%;
   font-weight: 500;
   font-size: 31px;
-  margin: 0px;
+  margin: 0;
   color: rgba(26, 31, 22, 0.5);
   font-family: Cabin;
 }
@@ -175,21 +185,16 @@ watch(
 
 .text__price {
   width: 100%;
-  padding: 16px 0px 8px 0px;
+  padding: 16px 0 8px 0;
   font-weight: 500;
   font-size: 31px;
 }
 
-.short-description {
-  font-weight: 400;
-  font-size: 20px;
-  color: #1a1f16;
-}
-.ptoduct__bottom {
+.bottom {
   width: 100%;
   height: 100%;
 }
-.bottim__line {
+.bottom__line {
   width: 100%;
   height: 3px;
   background-color: #1a1f16;
@@ -229,9 +234,6 @@ watch(
 @media (max-width: 650px) {
   .image__main {
     height: 65px;
-  }
-  .content__image-bloc {
-    padding-right: 4px;
   }
   .text__name {
     font-size: 18px;

@@ -1,11 +1,11 @@
 <template>
-  <button class="cross">
+  <button class="cross-button">
     <span></span>
   </button>
 </template>
 <script setup lang="ts"></script>
 <style scoped>
-.cross {
+.cross-button {
   cursor: pointer;
   position: absolute;
   bottom: 0;

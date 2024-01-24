@@ -1,11 +1,11 @@
 <template>
-  <section class="bag__body">
+  <section class="bag-body">
     <div class="bag__title">Bag</div>
-    <div class="bag__item">
+    <div class="item">
       <div class="item__block" v-for="(item, index) in cart" :key="item.id">
-        <div class="quantity__block">
+        <div class="quantity">
           <Minus @click="deleteItem(index)" />
-          <div class="quantity">{{ item.quantity }}</div>
+          <div class="quantity-text">{{ item.quantity }}</div>
           <Plus @click="pushItem(index)" />
         </div>
         <router-link :to="{ name: 'product-card', params: { id: item.id } }">
@@ -33,6 +33,7 @@ const store = createStore()
 const { cart } = storeToRefs(store)
 const deleteProduct = (index: number) => {
   cart.value.splice(index, 1)
+  store.setLocalStorage()
 }
 const deleteItem = (index: number) => {
   const currentItem = cart.value[index].quantity
@@ -51,7 +52,7 @@ const pushItem = (index: number) => {
 </script>
 
 <style scoped>
-.bag__body {
+.bag-body {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,19 +70,12 @@ const pushItem = (index: number) => {
   padding-top: 80px;
 }
 
-.bag__item {
+.item {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-}
-
-.bag__bottom-block {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
 }
 
 .item__block {
@@ -93,7 +87,7 @@ const pushItem = (index: number) => {
   padding: 8px;
   position: relative;
 }
-.quantity__block {
+.quantity {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -101,9 +95,7 @@ const pushItem = (index: number) => {
   gap: 24px;
 }
 
-.quantity {
-  padding: 0px;
-  margin: 0px;
+.quantity-text {
   display: flex;
 }
 .item__block img {
@@ -115,20 +107,12 @@ const pushItem = (index: number) => {
   margin-top: 20px;
   object-fit: contain;
 }
-
-.bottom__quantity {
-  display: flex;
-  justify-content: space-around;
-  font-weight: 600;
-  margin-left: 30px;
-}
-
 .bag__total {
   margin-top: 34px;
 }
 
 @media (max-width: 650px) {
-  .bag__body {
+  .bag-body {
     max-width: 200px;
   }
   .bag__title {

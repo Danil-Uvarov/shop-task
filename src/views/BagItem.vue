@@ -1,10 +1,10 @@
 <template>
-  <section class="bag-item__body">
-    <h2 class="bag__header">Check your Bag Items</h2>
+  <section class="bag-item">
+    <h2 class="bag-item__header">Check your Bag Items</h2>
     <router-link :to="{ name: 'Content' }">
       <BackButton />
     </router-link>
-    <div class="item__wrapper" v-for="(item, index) in cart" :key="item.id">
+    <div class="item" v-for="(item, index) in cart" :key="item.id">
       <div class="item__bag">
         <div class="item__image-wrapper">
           <img :src="item.images[0]" alt="" class="item-image" />
@@ -14,13 +14,13 @@
           <p class="model">{{ item.category }}</p>
           <p class="description">{{ item.description }}</p>
 
-          <div class="wrapper-rating">
-            <img src="/public/img/Rating.png" alt="" class="star" />
+          <div class="rating">
+            <img src="/src/assets/img/Rating.png" alt="" class="star" />
             <div class="balls">5/5</div>
           </div>
           <div class="item__footer">
             <div class="price">$ {{ item.price }}</div>
-            <div class="quantity__block">
+            <div class="item__quantity">
               <Minus @click="deleteItem(index)" />
               <div class="quantity">{{ item.quantity }}</div>
               <Plus @click="pushItem(index)" />
@@ -58,30 +58,28 @@ const pushItem = (index: number) => {
 }
 </script>
 <style scoped>
-.bag-item__body {
+.bag-item {
   width: 100%;
   height: 100%;
   overflow: auto;
   padding: 48px 48px 0 34px;
 }
 
-.bag__header {
+.bag-item__header {
   width: 100%;
-  margin: 0px;
   margin-top: 56px;
   font-weight: 400;
   font-size: 49px;
   color: #000;
 }
 
-.item__wrapper {
+.item {
   width: 100%;
   margin-top: 34px;
 }
 
 .item__bag {
   width: 100%;
-
   display: flex;
   border-radius: 21px;
   background-color: #fff;
@@ -121,14 +119,13 @@ const pushItem = (index: number) => {
 
 .description {
   font-weight: 400;
-  font-size: 20;
+  font-size: 20px;
   color: black;
   margin-top: 16px;
 }
 
-.wrapper-rating {
+.rating {
   width: 100%;
-
   display: flex;
 }
 
@@ -149,7 +146,6 @@ const pushItem = (index: number) => {
 
 .item__footer {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -159,10 +155,10 @@ const pushItem = (index: number) => {
 .price {
   font-weight: 400;
   font-size: 20px;
-  text-wrap: nowrap;
+  text-wrap: none;
 }
 
-.quantity__block {
+.item__quantity {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -171,8 +167,6 @@ const pushItem = (index: number) => {
 }
 
 .quantity {
-  padding: 0px;
-  margin: 0px;
   display: flex;
 }
 @media (max-width: 1100px) {
@@ -188,7 +182,7 @@ const pushItem = (index: number) => {
     padding-top: 8px;
   }
 
-  .quantity__block {
+  .item__quantity {
     gap: 10px;
   }
 }
@@ -202,11 +196,11 @@ const pushItem = (index: number) => {
   .item__block-content {
     margin: 0;
   }
-  .bag__header {
+  .bag-item__header {
     font-size: 32px;
     margin-top: 10px;
   }
-  .item__wrapper {
+  .item {
     margin-top: 12px;
   }
   .name {
@@ -226,7 +220,7 @@ const pushItem = (index: number) => {
     padding-top: 8px;
   }
 
-  .quantity__block {
+  .item__quantity {
     gap: 10px;
   }
   .price {

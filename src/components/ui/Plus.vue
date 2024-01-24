@@ -1,15 +1,15 @@
 <template>
-  <div class="plus"></div>
+  <div class="plus-button"></div>
 </template>
 <script setup lang="ts"></script>
 <style scoped>
-.plus {
+.plus-button {
   cursor: pointer;
   width: 10.5px;
   height: 2px;
   background-color: #02d693;
 }
-.plus::after {
+.plus-button::after {
   cursor: pointer;
   content: '';
   display: block;

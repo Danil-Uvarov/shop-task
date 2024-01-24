@@ -1,6 +1,6 @@
 <template>
   <button>
-    <img src="/public/img/cart.svg" alt="" />
+    <img src="/src/assets/img/cart.svg" alt="" />
     <p><slot /></p>
   </button>
 </template>
