@@ -15,6 +15,7 @@
       </div>
     </div>
     <div class="bag__total">Bag Total:{{ cart.length }}</div>
+    <div class="sum">sum: {{sum}}</div>
     <router-link :to="{ name: 'bag' }">
       <BagBlackButton>View Bag</BagBlackButton>
     </router-link>
@@ -31,22 +32,29 @@ import BagBlackButton from './ui/BagBlackButton.vue'
 
 const store = createStore()
 const { cart } = storeToRefs(store)
+const {sum} = storeToRefs(store)
+
 const deleteProduct = (index: number) => {
   cart.value.splice(index, 1)
+  store.getSum()
   store.setLocalStorage()
 }
+
 const deleteItem = (index: number) => {
   const currentItem = cart.value[index].quantity
   if (currentItem !== 1) {
     cart.value[index].quantity--
+    store.getSum()
     store.setLocalStorage()
     return
   }
   cart.value.splice(index, 1)
+  store.getSum()
   store.setLocalStorage()
 }
 const pushItem = (index: number) => {
   cart.value[index].quantity++
+  store.getSum()
   store.setLocalStorage()
 }
 </script>

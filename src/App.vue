@@ -28,6 +28,7 @@ onMounted(() => {
   if (data) {
     store.cart = JSON.parse(data)
   }
+  store.getSum()
 })
 </script>
 

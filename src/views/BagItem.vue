@@ -1,6 +1,6 @@
 <template>
   <section class="bag-item">
-    <h2 class="bag-item__header">Check your Bag Items</h2>
+    <h2 class="bag-item__header">Check your Bag Items, Price: <b>{{store.sum}}</b></h2>
     <router-link :to="{ name: 'Content' }">
       <BackButton />
     </router-link>
@@ -46,14 +46,17 @@ const deleteItem = (index: number) => {
   const currentItem = cart.value[index].quantity
   if (currentItem !== 1) {
     cart.value[index].quantity--
+    store.getSum()
     store.setLocalStorage()
     return
   }
   cart.value.splice(index, 1)
+  store.getSum()
   store.setLocalStorage()
 }
 const pushItem = (index: number) => {
   cart.value[index].quantity++
+  store.getSum()
   store.setLocalStorage()
 }
 </script>

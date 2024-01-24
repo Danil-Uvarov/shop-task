@@ -50,8 +50,10 @@ import { useRoute } from 'vue-router'
 import BackButton from '@/components/ui/BackButton.vue'
 import { ref, computed, watch } from 'vue'
 import type {IProductStore} from "@/models/requests/IProductStore";
+import {createStore} from "@/stores/store";
 
 const route = useRoute()
+const store = createStore()
 const productId = computed(() => Number(route.params.id))
 const product = ref<IProductStore>({
   id: 1,
@@ -70,8 +72,8 @@ watch(
   productId,
   async (productId) => {
     const response = await fetch(`https://dummyjson.com/products/${productId}`)
-
     product.value = await response.json()
+    await store.getSum()
   },
   { immediate: true }
 )

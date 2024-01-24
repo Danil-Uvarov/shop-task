@@ -12,7 +12,7 @@
             </router-link>
             <div class="item__footer">
               <div class="item__price">{{ item.price }}$</div>
-              <CartButtonItem @click="store.addCart(index)" />
+              <CartButtonItem @click="addCart(index)" />
             </div>
           </div>
         </div>
@@ -28,6 +28,10 @@ import { storeToRefs } from 'pinia'
 
 const store = createStore()
 const { products } = storeToRefs(store)
+const addCart = (index:number) =>{
+  store.addCart(index)
+  store.getSum()
+}
 </script>
 
 <style scoped>
