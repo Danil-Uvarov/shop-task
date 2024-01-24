@@ -1,6 +1,6 @@
 <template>
   <section class="bag-item">
-    <h2 class="bag-item__header">Check your Bag Items, Price: <b>{{store.sum}}</b></h2>
+    <h2 class="bag-item__header">Check your Bag Items, Sum: <b>{{store.sum}}</b></h2>
     <router-link :to="{ name: 'Content' }">
       <BackButton />
     </router-link>
